@@ -74,6 +74,8 @@ public:
         }
         return false;
     }
+
+private:    
     vector<Domain> forbiden_domains_;
     vector<string_view> forbiden_names_;
 };
