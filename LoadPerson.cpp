@@ -8,7 +8,7 @@ std::string MakeQueryString(const PersonQuery person_query, std::string quote){
     return query_str.str();
 }
 
-struct DB_settings{
+struct DBSettings{
     string_view db_name;
     int db_connection_timeout,
     bool db_allow_exceptions,
@@ -21,7 +21,7 @@ struct PersonQuery{
     string_view name_filter;
 };
 
-bool DBConnect(DBConnector& connector, DBHandler& db, DB_settings settings){
+bool DBConnect(DBConnector& connector, DBHandler& db, DBSettings db_settings){
     if (settings.db_name.starts_with("tmp."s)) {
         db = connector.ConnectTmp(db_settings.db_name, db_settings.db_connection_timeout);
     } else {
